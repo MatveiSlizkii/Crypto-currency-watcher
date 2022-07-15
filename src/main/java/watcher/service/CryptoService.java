@@ -76,23 +76,6 @@ public class CryptoService implements ICryptoService {
         return true;
     }
 
-    //TODO убить в конце
-    @Override
-    public Crypto add(Crypto crypto) {
-        LocalDateTime ldt = LocalDateTime.now();
-        crypto.setDtCreate(ldt);
-        crypto.setDtUpdate(ldt);
-
-
-        CryptoPriceEntity cryptoPriceEntity = new CryptoPriceEntity();
-        cryptoPriceEntity.setId(crypto.getId());
-        cryptoPriceEntity.setPriceUSD(1d);
-        cryptoPriceEntity.setDtCreate(ldt);
-        cryptoPriceEntity.setDtUpdate(ldt);
-        cryptoPriceStorage.save(cryptoPriceEntity);
-        return cs.convert(cryptoStorage.save(cs.convert(crypto, CryptoEntity.class)), Crypto.class);
-    }
-
     @Override
     public boolean checkSymbol(String symbol) {
         cryptoStorage.findBySymbol(symbol).orElseThrow(() -> new EntityNotFound("Передана несуществующая монета"));

@@ -14,6 +14,5 @@ public interface ICryptoService {
     boolean updateCryptoPrice(Long id, Double newValue);
     boolean checkSymbol(String symbol);
 
-    Crypto add (Crypto crypto);
 
 }

@@ -62,9 +62,4 @@ public class CryptoController {
     public Notification notifyPrice(@RequestBody Notification notification) {
         return this.notificationService.add(notification);
     }
-    @PostMapping(value = "/add")
-    @ResponseStatus(HttpStatus.CREATED)
-    public Crypto addCrypto(@RequestBody Crypto crypto) {
-        return this.cryptoService.add(crypto);
-    }
 }
